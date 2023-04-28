@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    #alice {
+        font-family: 'Alice', serif;
+    }
+    #poppins {
+        font-family: 'Poppins', sans-serif;
+    }
+}
+
+#toggle-btn:focus-visible + #content {
+    outline: none;
+  }
