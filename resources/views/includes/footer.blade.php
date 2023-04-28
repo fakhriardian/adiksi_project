@@ -22,6 +22,6 @@
         @endforeach
     </div> 
     <div>
-        <p>Copyright © 2023 - All right reserved by Adiksi coffee shop</p>
+        <p>Copyright © 2023 - All right reserved by Adiksi Coffee Shop</p>
     </div>
 </footer>
