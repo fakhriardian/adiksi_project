@@ -33,7 +33,7 @@ data-client-key="midtrans.client_key"></script>
             <p class="text-gray-500 text-xs">Copyright © 2023 - All right reserved by Adiksi coffee shop</p>
         </div>
     
-        <div class="relative w-full mx-auto flex flex-col p-6 backdrop-blur-2xl drop-shadow-2xl rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 text-white">
+        <div class="relative w-full mx-auto flex flex-col p-5 backdrop-blur-2xl drop-shadow-2xl rounded-2xl shadow dark:bg-gray-800 dark:border-gray-700 text-white">
             <div class="absolute left-0 top-0 w-full h-full bg-center bg-cover -z-20 rounded-2xl block lg:hidden"
                 style="background-image: url(asset/gradient-background.png)">
             </div>
@@ -91,11 +91,19 @@ data-client-key="midtrans.client_key"></script>
         
                 </div>
                 <hr class="mb-4">
+                <div class="flex justify-between mb-2">
+                    <div id="poppins" class="text-lg">
+                        Sub total
+                    </div>
+                    <div id="poppins" class="text-lg">
+                        Rp {{ $total }}
+                    </div>
+                </div>
                 <div class="flex justify-between mb-4">
-                    <div id="poppins" class="text-xl">
+                    <div id="poppins" class="text-2xl">
                         Total
                     </div>
-                    <div id="poppins" class="text-xl">
+                    <div id="poppins" class="text-2xl">
                         Rp {{ $total }}
                     </div>
                 </div>
