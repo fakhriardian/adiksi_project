@@ -33,20 +33,20 @@ class CartController extends Controller
         // dd($countData);
 
         // dd($countData);
-        
+
         if (count($countData) == 1) {
             $currentQty = DB::table('carts')->select('qty')
-            ->where('status', '0')
-            ->where('name', $request->get('item-name'))
-            ->where('option', $request->get('option'))
-            ->where('user_email', Auth()->User()->email)
-            ->get()[0]->qty;
+                ->where('status', '0')
+                ->where('name', $request->get('item-name'))
+                ->where('option', $request->get('option'))
+                ->where('user_email', Auth()->User()->email)
+                ->get()[0]->qty;
             $currentPrice = DB::table('carts')->select('price')
-            ->where('status', '0')
-            ->where('name', $request->get('item-name'))
-            ->where('option', $request->get('option'))
-            ->where('user_email', Auth()->User()->email)
-            ->get()[0]->price;
+                ->where('status', '0')
+                ->where('name', $request->get('item-name'))
+                ->where('option', $request->get('option'))
+                ->where('user_email', Auth()->User()->email)
+                ->get()[0]->price;
             // dd($currentPrice, $currentQty);
             if ($addData['option'] != $countData[0]->option) {
                 Cart::create($addData);
@@ -56,9 +56,9 @@ class CartController extends Controller
                     ->where('option', $request->get('option'))
                     ->where('user_email', Auth()->User()->email)
                     ->update([
-                    'qty' => $currentQty + $request->get('item-qty'),
-                    'price' => $currentPrice + ($request->get('item-price') * $request->get('item-qty')),
-                ]);
+                        'qty' => $currentQty + $request->get('item-qty'),
+                        'price' => $currentPrice + ($request->get('item-price') * $request->get('item-qty')),
+                    ]);
             }
         } else {
             Cart::create($addData);
@@ -67,7 +67,7 @@ class CartController extends Controller
         return redirect()->back();
     }
 
-        public function destroy(Cart $cart, $id)
+    public function destroy(Cart $cart, $id)
     {
         // $item = Item::findOrFail($item->id);
         Cart::where('id', $id)->delete();

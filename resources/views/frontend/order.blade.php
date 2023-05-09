@@ -15,14 +15,14 @@
                             class="{{ in_array($category->id, $selectedCategories) }} mr-2 ml-2 translate-y-5 rounded-b-[36px] text-center bg-gray-50 hover:translate-y-2 hover:scale-110 hover:rounded-t-xl shadow-md transition-all duration-300 hover:shadow-darkblue-800 hover:bg-darkblue-800 md:px-6 px-3 lg:h-[8vh] h-14 text-black hover:text-white justify-center delay-50ms] taos:[transform:translate3d(200px,0,0)_scale(0.6)] taos:opacity-0"
                             data-taos-offset="50">
                             <div
-                                class="flex rounded-xl mx-auto bg-white -translate-y-9 w-14 md:h-14 h-10 justify-center items-center shadow-md text-black hover:text-darkblue-800">
+                                class="flex rounded-xl mx-auto bg-white md:-translate-y-9 -translate-y-6 w-14 md:h-14 h-10 justify-center items-center shadow-md text-black hover:text-darkblue-800">
                                 <div class="md:text-xl text-lg">
                                     @php
                                         echo $category->icon;
                                     @endphp
                                 </div>
                             </div>
-                            <div class="absolute flex w-14 h-10 -z-10 justify-center -translate-y-10 items-center ">
+                            <div class="absolute flex w-14 h-10 justify-center md:-translate-y-10 -translate-y-7 items-center ">
                                 <h6 id="poppins" class="text-xs mt-1">
                                     {{ $category->name }}
                                 </h6>

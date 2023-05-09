@@ -25,36 +25,36 @@
         <div class="items-center transition-transform justify-between hidden w-full md:flex md:w-auto md:order-1"
             id="navbar-sticky">
             <ul
-                class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-lg md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                class="flex flex-col p-4 mt-4 border text-gray-700 border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-lg md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
                     <a href="/"
-                        class="block py-2 pl-3 pr-4 text-gray-700 transition duration-150 border-b-4 border-transparent hover:border-gold-800 hover:text-gold-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0">home</a>
+                        class="block py-2 pl-3 pr-4 transition duration-150 border-b-4 border-transparent hover:border-gold-800 hover:text-gold-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 @if(request()->is('/') || request()->is('/')) text-gold-800 @endif">home</a>
                 </li>
                 <li>
                     <a href="/pesan"
-                        class="block py-2 pl-3 pr-4 text-gray-700 transition duration-150 border-b-4 border-transparent hover:border-gold-800 hover:text-gold-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 ">pesan</a>
+                        class="block py-2 pl-3 pr-4 transition duration-150 border-b-4 border-transparent hover:border-gold-800 hover:text-gold-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 @if(request()->is('/pesan') || request()->is('pesan')) text-gold-800 @endif">pesan</a>
                 </li>
                 <li>
                     <a href="/menu"
-                        class="block py-2 pl-3 pr-4 transition duration-150 border-b-4 border-transparent hover:border-gold-800 hover:text-gold-800 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 ">menu</a>
+                        class="block py-2 pl-3 pr-4 transition duration-150 border-b-4 border-transparent hover:border-gold-800 hover:text-gold-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 @if(request()->is('/menu') || request()->is('menu')) text-gold-800 @endif">menu</a>
                 </li>
                 <li>
                     <a href="/lokasi-store"
-                        class="block py-2 pl-3 pr-4 transition duration-150 border-b-4 border-transparent hover:border-gold-800 hover:text-gold-800 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 ">lokasi
+                        class="block py-2 pl-3 pr-4 transition duration-150 border-b-4 border-transparent hover:border-gold-800 hover:text-gold-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 @if(request()->is('/lokasi-store') || request()->is('lokasi-store')) text-gold-800 @endif">lokasi
                         store</a>
                 </li>
                 <li>
                     <a href="/hubungi-kami"
-                        class="block py-2 pl-3 pr-4 transition duration-150 border-b-4 border-transparent hover:border-gold-800 hover:text-gold-800 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 ">hubungi
+                        class="block py-2 pl-3 pr-4 transition duration-150 border-b-4 border-transparent hover:border-gold-800 hover:text-gold-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 @if(request()->is('/hubungi-kami') || request()->is('hubungi-kami')) text-gold-800 @endif">hubungi
                         kami</a>
                 </li>
                 <li>
                     @guest
                     <a href="/home"
-                        class="block py-2 pl-3 pr-4 transition duration-150 border-b-4 border-transparent hover:border-gold-800 hover:text-gold-800 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 ">login
+                        class="block py-2 pl-3 pr-4 transition duration-150 border-b-4 border-transparent hover:border-gold-800 hover:text-gold-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 @if(request()->is('/login') || request()->is('login')) text-gold-800 @endif">login
                     </a>
                     @else
-                    <button id="dropdownNavbarButtonLogin" data-dropdown-toggle="dropdownNavbarLogin" class="flex items-center transition duration-150 justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 hover:text-gold-800 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">{{ Auth()->user()->name }}<svg class="w-4 h-4 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
+                    <button id="dropdownNavbarButtonLogin" data-dropdown-toggle="dropdownNavbarLogin" class="flex items-center transition duration-150 justify-between w-full py-2 pl-3 pr-4 font-medium border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 hover:text-gold-800 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">{{ Auth()->user()->name }}<svg class="w-4 h-4 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
                     <!-- Dropdown menu -->
                     <div id="dropdownNavbarLogin" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                         <div class="md:w-48 w-full text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
