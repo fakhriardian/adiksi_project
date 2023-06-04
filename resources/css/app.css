@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 @layer base {
-    #alice {
+    .font-alice {
         font-family: 'Alice', serif;
     }
-    #poppins {
+    .font-poppins {
         font-family: 'Poppins', sans-serif;
     }
 }
@@ -14,3 +14,12 @@
 #toggle-btn:focus-visible + #content {
     outline: none;
 }
+
+    .autofill-shadow-none:-webkit-autofill {
+        -webkit-box-shadow: inset 0 0 0px 9999px #FFFCF9;
+      }
+      
+    .autofill-shadow-none:focus,
+    .autofill-shadow-none:-webkit-autofill:focus {
+        -webkit-box-shadow: inset 0 0 0px 9999px #FFFCF9, 0 0 0px rgb(255,252,249);
+    }

@@ -1,12 +1,10 @@
-<nav
-    class="px-12 bg-white drop-shadow-lg md:px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 dark:border-gray-600">
+<nav class="px-12 bg-white drop-shadow-lg md:px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 dark:border-gray-600">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
         <div class="container w-fit flex flex-wrap">
             <a href="/" class="flex items-center">
                 <img src="/logo-images/adiksi_logo.png" class="-translate-y-0.5 h-10 mr-3 sm:h-12 hidden md:block"
                     alt="Flowbite Logo" />
-                <span id="alice"
-                    class="self-center leading-loose text-4xl font-serif font-semibold text-gold-800 whitespace-nowrap dark:text-white">adiksi</span>
+                <span class="self-center font-alice leading-loose text-4xl text-gold-800 whitespace-nowrap dark:text-white">adiksi</span>
             </a>
         </div>
         <div class="flex">

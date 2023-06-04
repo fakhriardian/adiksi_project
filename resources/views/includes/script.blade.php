@@ -2,6 +2,7 @@
 <script src="https://unpkg.com/taos@1.0.2/dist/taos.js"></script>
 {{-- fontawesome --}}
 <script src="https://kit.fontawesome.com/bc51f3fd1e.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script>
     // get the carousel and its inner element
     const carousel = document.querySelector('.carousel');

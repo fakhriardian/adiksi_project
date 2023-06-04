@@ -156,4 +156,8 @@ class HomeController extends Controller
         $worker->delete();    
         return redirect()->back()->with(['success' => 'Worker has been deleted!' ]);
     }
+    public function meeting()
+    {
+        return view('frontend.meeting');
+    }
 }

@@ -12,7 +12,7 @@
                 <div class="relative gap-5 carousel carousel-center md:w-10/12 w-8/12 h-32 rounded-box place-items-center">
                     @foreach ($categories as $category)
                         <a href="{{ route('items.category', ['categories[]' => $category->id]) }}"
-                            class="{{ in_array($category->id, $selectedCategories) }} mr-2 ml-2 translate-y-5 rounded-b-[36px] text-center bg-gray-50 hover:translate-y-2 hover:scale-110 hover:rounded-t-xl shadow-md transition-all duration-300 hover:shadow-darkblue-800 hover:bg-darkblue-800 md:px-6 px-3 lg:h-[8vh] h-14 text-black hover:text-white justify-center delay-50ms] taos:[transform:translate3d(200px,0,0)_scale(0.6)] taos:opacity-0"
+                            class="{{ in_array($category->id, $selectedCategories) }} mr-2 ml-2 translate-y-5 rounded-b-[36px] text-center bg-gray-50 hover:translate-y-2 hover:scale-110 hover:rounded-t-xl shadow-md transition-all duration-300 hover:shadow-darkblue-800 hover:bg-darkblue-800 md:px-6 px-3 lg:h-16 h-14 text-black hover:text-white justify-center delay-50ms] taos:[transform:translate3d(200px,0,0)_scale(0.6)] taos:opacity-0"
                             data-taos-offset="50">
                             <div
                                 class="flex rounded-xl mx-auto bg-white md:-translate-y-9 -translate-y-6 w-14 md:h-14 h-10 justify-center items-center shadow-md text-black hover:text-darkblue-800">
@@ -166,7 +166,7 @@
                         <div class="relative flex flex-col justify-center items-center">
                             <button data-modal-target="defaultModal-soldOut" disabled data-modal-toggle="defaultModal-soldOut" class="relative block text-white drop-shadow-xl shadow hover:bg-gold-800 cursor-not-allowed bg-darkblue-800 transition-all duration-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg md:text-sm text-xs px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                                 <span
-                                    class="totalProduct absolute z-10 flex w-7 h-7 bg-red-500 rounded-full justify-center items-center text-xs text-white -translate-y-5 md:translate-x-[16vh] translate-x-16">
+                                    class="totalProduct absolute z-10 flex w-7 h-7 bg-red-500 rounded-full justify-center items-center text-xs text-white -translate-y-5 md:translate-x-28 translate-x-16">
                                     {{ count($countDraft) }}
                                 </span>
                                 Sold Out Menu !
@@ -176,7 +176,7 @@
                         <div class="relative flex flex-col justify-center items-center">
                             <button data-modal-target="defaultModal-soldOut" data-modal-toggle="defaultModal-soldOut" class="relative block text-white drop-shadow-xl shadow hover:bg-gold-800 bg-darkblue-800 transition-all duration-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg md:text-sm text-xs px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                                 <span
-                                    class="totalProduct absolute z-10 flex w-7 h-7 bg-red-500 rounded-full justify-center items-center text-xs text-white -translate-y-5 md:translate-x-[16vh] translate-x-16">
+                                    class="totalProduct absolute z-10 flex w-7 h-7 bg-red-500 rounded-full justify-center items-center text-xs text-white -translate-y-6 md:translate-x-28 translate-x-16">
                                     {{ count($countDraft) }}
                                 </span>
                                 Sold Out Menu !
@@ -224,10 +224,10 @@
                     <form method="post" action={{ route('addtocart') }}>
                         @csrf
                         <div class="item">
-                            <div class="card md:w-60 w-40 bg-base-100 shadow-xl hover:-translate-y-3 hover:scale-100 transition ease-in-out duration-500 hover:text-white hover:bg-gold-800 taos:[transform:translate3d(0,200px,0)_scale(0.6)] taos:opacity-0" data-taos-offset="0">
+                            <div class="card md:w-60 w-40 bg-base-100 shadow-xl group hover:-translate-y-3 hover:scale-100 transition ease-in-out duration-500 hover:text-white hover:bg-gold-800 taos:[transform:translate3d(0,200px,0)_scale(0.6)] taos:opacity-0" data-taos-offset="0">
                                 <figure class="w-full md:h-56 h-40">
                                     <img src="{{ asset('store-image/' . $item->image) }}" alt="Image-item"
-                                        class="item-image max-w-sm rounded-xl drop-shadow-2xl object-cover hover:scale-110 hover:rotate-12 transition ease-in-out duration-500" />
+                                        class="item-image max-w-sm rounded-xl drop-shadow-2xl object-cover group-hover:scale-110 group-hover:rotate-6 transition ease-in-out duration-500" />
                                 </figure>
                                 <div class="card-body">
                                     <h2 class="item-name card-title md:h-12 h-12 md:text-xl text-lg">{{ $item->name }}</h2>

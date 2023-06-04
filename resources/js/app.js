@@ -1,4 +1,5 @@
 import './bootstrap';
 
-// flowbite
 import 'flowbite';
+
+import $ from 'jquery';

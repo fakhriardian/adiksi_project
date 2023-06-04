@@ -34,6 +34,7 @@ Route::get('/lokasi-store', [App\Http\Controllers\FrontendController::class, 'lo
 Route::get('/hubungi-kami', [App\Http\Controllers\FrontendController::class, 'contact'])->name('contact');
 
 Route::get('/pesan', [App\Http\Controllers\HomeController::class, 'order'])->name('items.category');
+Route::get('/booking-meeting-room', [App\Http\Controllers\HomeController::class, 'meeting'])->name('meeting');
 Route::get('/riwayat-pemesanan', [App\Http\Controllers\HomeController::class, 'history'])->name('history');
 Route::delete('/pesan/{name}', [App\Http\Controllers\CartController::class, 'destroy'])->name('order.destroy');
 Route::delete('/back/{item}', [App\Http\Controllers\OrderController::class, 'destroy'])->name('back.destroy');

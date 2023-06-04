@@ -32,7 +32,7 @@ data-client-key="midtrans.client_key"></script>
             <img class="object-cover w-full rounded-2xl" src="/asset/payment-vector.png" alt="">
             <p class="text-gray-500 text-xs">Copyright © 2023 - All right reserved by Adiksi coffee shop</p>
         </div>
-    
+
         <div class="relative w-full mx-auto flex flex-col p-5 backdrop-blur-2xl drop-shadow-2xl rounded-2xl shadow dark:bg-gray-800 dark:border-gray-700 text-white">
             <div class="absolute left-0 top-0 w-full h-full bg-center bg-cover -z-20 rounded-2xl block lg:hidden"
                 style="background-image: url(asset/gradient-background.png)">

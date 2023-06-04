@@ -40,7 +40,7 @@
                 Add Category
             </button>
 
-            <!-- Main modal -->
+            <!-- add category modal -->
             <div id="authentication-modal" tabindex="-1" aria-hidden="true"
                 class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
                 <div class="relative w-full h-full max-w-md md:h-auto">
@@ -57,35 +57,74 @@
                             </svg>
                             <span class="sr-only">Close modal</span>
                         </button>
-                        <div class="px-6 py-6 lg:px-8">
-                            <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Create Category</h3>
-                            <form class="space-y-6" method="post" action="{{ route('category.store') }}">
-                                @csrf
-                                <label for="countries"
-                                    class="block mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
-                                    Select icon
-                                </label>
-                                <select id="icon" name="icon"
-                                    class="bg-gray-50 mb-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    <option selected>Choose icon</option>
-                                    <option value='<i class="fa-solid fa-bowl-rice md:text-3xl text-xl"></i>'>Food</option>
-                                    <option value='<i class="fa-solid fa-cookie-bite"></i>'>Snack</option>
-                                    <option value='<i class="fa-solid fa-mug-saucer"></i>'>Coffee</option>
-                                    <option value='<i class="fa-solid fa-wine-glass"></i>'>Non-Coffee</option>
-                                    <option value='<i class="fa-solid fa-star"></i>'>Signature</option>
-                                    <option value='<i class="fa-solid fa-whiskey-glass"></i>'>Tea</option>
-                                    <option value='<i class="fa-solid fa-glass-water"></i>'>Juice</option>
-                                </select>
-                                <div class="relative">
-                                    <input type="text" id="floating_outlined" name="name"
-                                        class="block mb-4 px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                        placeholder=" " />
-                                    <label for="floating_outlined"
-                                        class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Name</label>
-                                </div>
-                                <button type="submit"
-                                    class="w-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">+</button>
-                            </form>
+
+                        <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+                            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+                                <li class="mr-2" role="presentation">
+                                    <button class="inline-block p-4 border-b-2 rounded-t-lg" id="addCategory-tab" data-tabs-target="#addCategory" type="button" role="tab" aria-controls="addCategory" aria-selected="false">Add Category</button>
+                                </li>
+                                <li class="mr-2" role="presentation">
+                                    <button class="inline-block p-4 border-b-2 rounded-t-lg" id="customIcon-tab" data-tabs-target="#customIcon" type="button" role="tab" aria-controls="customIcon" aria-selected="false">Custom Icon</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="myTabContent">
+                            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="addCategory" role="tabpanel" aria-labelledby="addCategory-tab">
+                                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add Category</h3>
+                                <form class="space-y-6" method="post" action="{{ route('category.store') }}">
+                                    @csrf
+                                    <label for="countries"
+                                        class="block mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
+                                        Select icon
+                                    </label>
+                                    <select id="icon" name="icon"
+                                        class="bg-gray-50 mb-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        <option selected>Choose icon</option>
+                                        <option value='<i class="fa-solid fa-bowl-rice"></i>'>Food</option>
+                                        <option value='<i class="fa-solid fa-cookie-bite"></i>'>Snack</option>
+                                        <option value='<i class="fa-solid fa-mug-saucer"></i>'>Coffee</option>
+                                        <option value='<i class="fa-solid fa-wine-glass"></i>'>Non-Coffee</option>
+                                        <option value='<i class="fa-solid fa-star"></i>'>Signature</option>
+                                        <option value='<i class="fa-solid fa-whiskey-glass"></i>'>Tea</option>
+                                        <option value='<i class="fa-solid fa-glass-water"></i>'>Juice</option>
+                                    </select>
+                                    <div class="relative">
+                                        <input type="text" id="floating_outlined" name="name"
+                                            class="block mb-4 px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                            placeholder=" " />
+                                        <label for="floating_outlined"
+                                            class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Name</label>
+                                    </div>
+                                    <button type="submit"
+                                        class="w-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">+</button>
+                                </form>
+                            </div>
+                            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="customIcon" role="tabpanel" aria-labelledby="customIcon-tab">
+                                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Custom Icon Category</h3>
+                                <p>
+                                    Copy html i class code pada <a href="https://fontawesome.com/search?o=r&m=free" target=".blank" class="text-blue-800 font-bold border-b-black border-b">Fontawesome</a>
+                                </p>
+                                <form class="space-y-6" method="post" action="{{ route('category.store') }}">
+                                    @csrf
+
+                                    <div class="relative">
+                                        <input type="text" id="floating_outlined" name="icon"
+                                            class="block mb-4 px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                            placeholder="<i class='fa-solid fa-house'></i>" />
+                                        <label for="floating_outlined"
+                                            class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"></label>
+                                    </div>
+                                    <div class="relative">
+                                        <input type="text" id="floating_outlined" name="name"
+                                            class="block mb-4 px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                            placeholder=" " />
+                                        <label for="floating_outlined"
+                                            class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Name</label>
+                                    </div>
+                                    <button type="submit"
+                                        class="w-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">+</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -169,8 +208,12 @@
                                                     icon</label>
                                                 <select id="icon" name="icon"
                                                     class="bg-gray-50 mb-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                                    <option selected>Choose icon</option>
-                                                    <option value='<i class="fa-solid fa-bowl-rice md:text-3xl text-xl"></i>'>Food</option>
+                                                    @foreach($categories as $category)
+                                                        <option value="{{ $category->icon }}"
+                                                                @if($row->id == ($category->id)) selected @endif >
+                                                            {{ $category->name }}
+                                                        </option>
+                                                    @endforeach 
                                                 </select>
                                                 <div class="relative">
                                                     <input type="text" id="floating_outlined" name="name" value="{{ $row->name }}"

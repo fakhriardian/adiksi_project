@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class CategoriesController extends Controller
 {
@@ -16,8 +17,9 @@ class CategoriesController extends Controller
     public function index()
     {
         $index = Categories::orderBy('created_at', 'DESC')->paginate(6);
+        $categories = Categories::all();
 
-        return view('admin.category.index', compact('index'));
+        return view('admin.category.index', compact('index','categories'));
     }
 
     /**
@@ -76,9 +78,16 @@ class CategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categories $categories)
+    public function update(Request $request, $id)
     {
-        //
+        $update = $this->validate($request, [
+            'name' => 'required|max:500',
+            'icon' => 'required|max:1000',
+        ]);
+
+        Categories::where('id', $id)->update($update);
+
+        return redirect()->route('category.index')->with(['success' => 'Data succesfully updated!']);
     }
 
     /**
@@ -87,8 +96,13 @@ class CategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categories $categories)
+    public function destroy(Categories $categories, $id)
     {
-        //
+         // $item = Item::findOrFail($item->id);
+         Categories::where('id', $id)->delete();
+ 
+         $categories->delete();
+ 
+         return redirect()->route('category.index')->with(['success' => 'Data has been deleted!']);
     }
 }

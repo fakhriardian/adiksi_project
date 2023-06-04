@@ -46,7 +46,7 @@
                                     for="file_input">Hero Image</label>
                                 <input
                                     class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                    aria-describedby="file_input_help" id="file_input" type="file" name="hero_image">
+                                    aria-describedby="file_input_help" id="file_input" type="file" name="hero_image" placeholder="{{ $index['hero_image'] }}">
                                 <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG
                                     or
                                     GIF
@@ -191,22 +191,22 @@
                             galeri section
                         </h5>
                         <div class="grid grid-cols-2 grid-flow-row2 gap-4">
-                            <div class="div">
+                            <div>
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Image 1</label>
                                 <input name="image1" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" name="hl_image1" type="file">
                                 <p class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                             </div>
-                            <div class="div">
+                            <div>
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Image 2</label>
                                 <input name="image2" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" name="hl_image2" type="file">
                                 <p class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                             </div>
-                            <div class="div">
+                            <div>
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Image 3</label>
                                 <input name="image3" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" name="hl_image3" type="file">
                                 <p class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                             </div>
-                            <div class="div">
+                            <div>
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Image 4</label>
                                 <input name="image4" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" name="hl_image4" type="file">
                                 <p class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>

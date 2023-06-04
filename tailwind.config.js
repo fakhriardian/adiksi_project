@@ -14,6 +14,7 @@ module.exports = {
     colors: {
       'gold-800' : '#B99F78',
       'darkblue-800' : '#183754',
+      'brokenwhite-200' : '#FFFCF9',
     },
   },
   plugins: [
