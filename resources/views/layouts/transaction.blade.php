@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="icon" type="image/x-icon" href="/logo-images/adiksi_logo.png">
 
     {{-- googleFont --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">

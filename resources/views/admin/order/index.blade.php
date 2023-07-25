@@ -9,10 +9,10 @@
                     <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Website</button>
                 </li>
                 <li class="mr-2" role="presentation">
-                    <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Kasir</button>
+                    <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Cashier</button>
                 </li>
                 <li role="presentation">
-                    <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#contacts" type="button" role="tab" aria-controls="contacts" aria-selected="false">Selesai</button>
+                    <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#contacts" type="button" role="tab" aria-controls="contacts" aria-selected="false">History</button>
                 </li>
             </ul>
             <form method="GET">
@@ -175,8 +175,7 @@
                                                                 @method('PUT')
                                                                 <div>
                                                                     <label for="kasir" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">kasir</label>
-                                                                    <select id="kasir" name="casheer" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                                                    <option selected>select</option>
+                                                                    <select id="kasir" name="cashier" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                                     @foreach ($workers as $worker)
                                                                         <option value="{{ $worker->name }}">{{ $worker->name }}</option>
                                                                     @endforeach
@@ -406,7 +405,7 @@
                                                                 @method('PUT')
                                                                 <div class="flex items-center gap-4">
                                                                     <label for="kasir" class="block text-lg font-medium text-gray-900 dark:text-white">kasir</label>
-                                                                    <select id="kasir" name="casheer" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-40 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                                    <select id="kasir" name="cashier" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-40 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                                         @foreach ($workers as $worker)
                                                                             <option value="{{ $worker->name }}">{{ $worker->name }}</option>
                                                                         @endforeach
@@ -446,7 +445,7 @@
                                     Date
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Casheer
+                                    Cashier
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Payment Method
@@ -470,7 +469,7 @@
                                             {{ $item->updated_at }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $item->casheer }}
+                                            {{ $item->cashier }}
                                         </td>
                                         <td class="px-6 py-4">
                                             {{ $item->paymentMethod }}
@@ -507,7 +506,7 @@
                                                                     @if ($kasir->order_id == $item->order_id)
                                                                         <h3 class="mb-2 text-md font-medium text-gray-900 dark:text-white">
                                                                             Kasir : 
-                                                                        </h3> {{ $kasir->casheer }}
+                                                                        </h3> {{ $kasir->cashier }}
                                                                     @endif
                                                                 @endforeach
                                                             </div>

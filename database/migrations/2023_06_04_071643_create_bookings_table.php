@@ -13,20 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->string('user_email');
-            $table->string('user_name');
             $table->string('order_id')->nullable();
+            $table->string('user_email');
+            $table->string('username');
+            $table->string('room');
+            $table->date('date');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->integer('duration');
+            $table->integer('capacity');
             $table->bigInteger('total');
-            $table->integer('tableNumber');
-            $table->integer('tunai')->default(0);
-            $table->integer('change')->default(0);
-            $table->string('cashier')->nullable();
             $table->enum('status', ['unpaid','paid']);
-            $table->enum('active', ['0','1']);
-            $table->string('paymentMethod')->nullable();
-            $table->string('timelines_id')->default(0);
+            $table->enum('active', ['1','0']);
             $table->timestamps();
         });
     }
@@ -38,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('bookings');
     }
 };

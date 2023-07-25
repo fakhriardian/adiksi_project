@@ -17,6 +17,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "ajax": "^0.0.4",
         "autoprefixer": "^10.4.13",
         "daisyui": "^2.50.2",
         "flowbite": "^1.6.3",

@@ -26,7 +26,7 @@
                 class="flex flex-col p-4 mt-4 border text-gray-700 border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-lg md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
                     <a href="/"
-                        class="block py-2 pl-3 pr-4 transition duration-150 border-b-4 border-transparent hover:border-gold-800 hover:text-gold-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 @if(request()->is('/') || request()->is('/')) text-gold-800 @endif">home</a>
+                        class="block py-2 pl-3 pr-4 transition duration-150 border-b-4 border-transparent hover:border-gold-800 hover:text-gold-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 @if(request()->is('/') || request()->is('/')) text-gold-800 @endif">beranda</a>
                 </li>
                 <li>
                     <a href="/pesan"
@@ -39,7 +39,7 @@
                 <li>
                     <a href="/lokasi-store"
                         class="block py-2 pl-3 pr-4 transition duration-150 border-b-4 border-transparent hover:border-gold-800 hover:text-gold-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 @if(request()->is('/lokasi-store') || request()->is('lokasi-store')) text-gold-800 @endif">lokasi
-                        store</a>
+                        toko</a>
                 </li>
                 <li>
                     <a href="/hubungi-kami"
@@ -48,7 +48,7 @@
                 </li>
                 <li>
                     @guest
-                    <a href="/home"
+                    <a href="/dashboard"
                         class="block py-2 pl-3 pr-4 transition duration-150 border-b-4 border-transparent hover:border-gold-800 hover:text-gold-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 @if(request()->is('/login') || request()->is('login')) text-gold-800 @endif">login
                     </a>
                     @else

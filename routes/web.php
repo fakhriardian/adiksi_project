@@ -2,13 +2,10 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SocmedController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\LandingPageController;
@@ -38,22 +35,27 @@ Route::get('/booking-meeting-room', [App\Http\Controllers\HomeController::class,
 Route::get('/riwayat-pemesanan', [App\Http\Controllers\HomeController::class, 'history'])->name('history');
 Route::delete('/pesan/{name}', [App\Http\Controllers\CartController::class, 'destroy'])->name('order.destroy');
 Route::delete('/back/{item}', [App\Http\Controllers\OrderController::class, 'destroy'])->name('back.destroy');
+Route::delete('/backBooking/{item}', [App\Http\Controllers\BookingController::class, 'back'])->name('back.destroyBooking');
 Route::post('/pesan/addtocart', [App\Http\Controllers\CartController::class, 'addToCart'])->name('addtocart');
 Route::post('/hubungi-kami', [App\Http\Controllers\ContactController::class, 'contact'])->name('contact');
 Route::post('/checkout', [OrderController::class, 'checkout'])->name('checkout');
 Route::get('/invoice/{invoice}', [OrderController::class, 'invoice'])->name('invoice');
+Route::get('/booking-invoice/{invoice}', [BookingController::class, 'invoice'])->name('booking-invoice');
 Route::post('/pay-on-casheer/{order_id}', [App\Http\Controllers\HomeController::class, 'confirm'])->name('confirm');
 Route::post('/midtrans_callback', [OrderController::class, 'callback'])->name('callback');
+Route::post('/booking_callback', [BookingController::class, 'callback'])->name('callback');
+Route::post('/appointment', [App\Http\Controllers\BookingController::class, 'storeAppointment'])->name('appointment');
 
 Auth::routes();
 
 Route::middleware('Role:1')->group( function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
     Route::resource('/admin/landingpage', LandingPageController::class);
     Route::resource('/admin/menu', ItemController::class);
     Route::resource('/admin/category', CategoriesController::class);
     Route::resource('/admin/location', LocationController::class);
     Route::resource('/admin/socmed', SocmedController::class);
+    Route::resource('/admin/booking', BookingController::class);
     Route::get('/admin/order', [App\Http\Controllers\HomeController::class, 'activeOrder'])->name('activeOrder');
     Route::get('/admin/message', [App\Http\Controllers\ContactController::class, 'message'])->name('message');
     Route::get('/admin/workers', [App\Http\Controllers\HomeController::class, 'workers'])->name('workers');
@@ -66,4 +68,6 @@ Route::middleware('Role:1')->group( function () {
     Route::delete('/delete/{id}', [App\Http\Controllers\HomeController::class, 'destroy'])->name('destroy');
     Route::get('/draft/{id}', [App\Http\Controllers\ItemController::class, 'draft'])->name('draft');
     Route::get('/publish/{id}', [App\Http\Controllers\ItemController::class, 'publish'])->name('publish');
+    Route::get('/done/{id}', [App\Http\Controllers\BookingController::class, 'done'])->name('done');
+    Route::get('/notifications', [OrderController::class, 'getNotifications']);
 });

@@ -114,11 +114,9 @@ data-client-key="midtrans.client_key"></script>
                         </button>
                     </div>
                     <div>
-
                         <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="text-white block mx-auto bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" type="button">
                             Pay at casheer
                         </button>
-                    
                     </div>
                 </div>
             </div>
@@ -146,7 +144,6 @@ data-client-key="midtrans.client_key"></script>
         </div>
     </div>
 </div>
-
 
 {{-- midtrans --}}
 <script type="text/javascript">

@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkerRequest;
+use App\Models\Booking;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -68,8 +70,10 @@ class HomeController extends Controller
     public function history(Request $request)
     {
         $contact = Socmed::all();
+        $appointment = Booking::where('user_email', Auth()->User()->email)
+                                ->where('status', 'paid')->get();
         $order = Order::where('user_email', Auth()->User()->email)->where('order_id','like','%' . $request->get('search') . '%')->orderBy('updated_at', 'DESC')->paginate(6);
-        return view('frontend.orderHistory', compact('order','contact'));
+        return view('frontend.orderHistory', compact('order','contact','appointment'));
     }
     public function activeOrder(Request $request) 
     {
@@ -156,8 +160,9 @@ class HomeController extends Controller
         $worker->delete();    
         return redirect()->back()->with(['success' => 'Worker has been deleted!' ]);
     }
-    public function meeting()
+    public function meeting(Request $request)
     {
-        return view('frontend.meeting');
+        $index = Booking::where('date','like','%' . $request->get('date') . '%')->where('status', 'paid')->orderBy('created_at', 'DESC')->get();
+        return view('frontend.meeting', compact('index'));
     }
 }

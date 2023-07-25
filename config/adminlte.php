@@ -303,32 +303,37 @@ return [
         [
             'text' => 'Workers',
             'url'  => '/admin/workers',
-            'icon' => 'fas fa-s fa-users',
+            'icon' => 'fas fa-fw fa-users',
         ],
         [
             'text' => 'Landing Page',
             'url'  => '/admin/landingpage',
-            'icon' => 'fas fa-s fa-pager',
+            'icon' => 'fas fa-fw fa-pager',
         ],
         [
             'text' => 'Category',
             'url'  => '/admin/category',
-            'icon' => 'fas fa-s fa-list',
+            'icon' => 'fas fa-fw fa-list',
         ],
         [
             'text' => 'Adiksi Menu',
             'url'  => '/admin/menu',
-            'icon' => 'fas fa-s fa-clipboard',
+            'icon' => 'fas fa-fw fa-clipboard',
         ],
         [
             'text' => 'Orders',
             'url'  => '/admin/order',
-            'icon' => 'fas fa-t fa-clipboard-check',
+            'icon' => 'fas fa-fw fa-clipboard-check',
+        ],
+        [
+            'text' => 'Booking List',
+            'url'  => '/admin/booking',
+            'icon' => 'fas fa-fw fa-book',
         ],
         [
             'text' => 'Message',
             'url'  => '/admin/message',
-            'icon' => 'fas fa-s fa-inbox',
+            'icon' => 'fas fa-fw fa-inbox',
         ],
     ],
 

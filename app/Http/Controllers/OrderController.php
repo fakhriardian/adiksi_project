@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-
 class OrderController extends Controller
 {
     public function index()
@@ -21,8 +20,9 @@ class OrderController extends Controller
         $price = [];
         $qty = [];
         $option = [];
+        $email = Auth()->User()->email;
 
-        $countData = Cart::latest()->value('id');
+        $countData = Cart::where('user_email', $email)->where('status', 0)->latest()->value('id');
         // dd($countData);
 
         for ($i = 0; $i <= $countData; $i++) {
@@ -50,6 +50,7 @@ class OrderController extends Controller
             'tableNumber' => $number,
         ];
         $countOrder = Order::where('order_id')->where('user_email',Auth()->User()->email)->get();
+        // dd($countOrder);
         if (count($countOrder) == 1) {
             $update = $this->validate($request, [
                 'tableNumber' => 'required|max:500',
@@ -59,8 +60,6 @@ class OrderController extends Controller
         }else{
             Order::create($addData);
         }
-
-
         // dd($request, $i);
         // $order = Order::create($request->all());
 
@@ -114,7 +113,7 @@ class OrderController extends Controller
             'get' => $get
         ]);
     }
-    public function callback(Request $request)
+    public function callback()
     {
         $order = Cart::where('user_email', Auth()->User()->email)->get();
         for ($i = 0; $i < count($order); $i++) {
@@ -134,24 +133,24 @@ class OrderController extends Controller
         ]);
         return $order_id;
     }
-    public function casheer()
-    {
-        $order = Cart::where('user_email', Auth()->User()->email)->get();
-        for ($i = 0; $i < count($order); $i++) {
-            $order[$i]->update(['status' => '1']);
-        }
-        
-        $tableNumber = Order::where('user_email', Auth()->User()->email)
-        ->orderBy('created_at','DESC')->value('tableNumber');
+    // public function casheer()
+    // {
+    //     $order = Cart::where('user_email', Auth()->User()->email)->get();
+    //     for ($i = 0; $i < count($order); $i++) {
+    //         $order[$i]->update(['status' => '1']);
+    //     }
+    //     // dd($order);
+    //     $tableNumber = Order::where('user_email', Auth()->User()->email)
+    //     ->orderBy('created_at','DESC')->value('tableNumber');
 
-        $order = Order::where('status','unpaid')
-        ->where('tableNumber', $tableNumber)
-        ->where('user_email', Auth()->User()->email)->update([
-            'status' => 'paid'
-        ]);
-        return redirect()->back();
-    }
-    public function invoice(Request $request, $order_id)
+    //     $order = Order::where('status','unpaid')
+    //     ->where('tableNumber', $tableNumber)
+    //     ->where('user_email', Auth()->User()->email)->update([
+    //         'status' => 'paid'
+    //     ]);
+    //     return redirect()->back();
+    // }
+    public function invoice($order_id)
     {
         $orders = Order::with('carts')
         ->where('order_id', $order_id)
@@ -165,33 +164,31 @@ class OrderController extends Controller
         return view('frontend.invoice',compact('orders','carts'));
     }
 
+    // back from checkout page
     public function destroy(Order $order, $get)
     {
         $order->where('created_at', $get)->delete();
 
-        // return view('frontend.order');
         return redirect()->route('items.category');
     }
     public function cashPayment(Request $request, $order_id)
     {
-        $chaseer = $request->get('casheer');
+        $cashier = $request->get('cashier');
         Order::where('order_id', $order_id)
-        ->where('user_email', Auth()->User()->email)
         ->update([
-            'casheer' => $chaseer,
+            'cashier' => $cashier,
+            'status' => 'paid',
             'active' => '1'
         ]);
         return redirect()->back();
     }
     public function ePayment(Request $request, $order_id)
     {
-        $chaseer = $request->get('casheer');
+        $cashier = $request->get('cashier');
         Order::where('order_id', $order_id)
-        ->where('user_email', Auth()->User()->email)
         ->update([
-            'casheer' => $chaseer,
-            'status' => 'paid',
-            'active' => '1',
+            'cashier' => $cashier,
+            'active' => '1'
         ]);
         return redirect()->back();
     }
@@ -212,7 +209,6 @@ class OrderController extends Controller
             $tunai = $request->get('tunai');
             $change = $request->get('change');
             Order::where('order_id', $order_id)
-            ->where('user_email', Auth()->User()->email)
             ->update([
                 'timelines_id' => $timeline,
                 'status' => 'paid',
@@ -222,7 +218,6 @@ class OrderController extends Controller
         } else {
             $timeline = $request->get('timeline');
             Order::where('order_id', $order_id)
-            ->where('user_email', Auth()->User()->email)
             ->update([
                 'timelines_id' => $timeline,
                 'status' => 'paid',
@@ -230,5 +225,11 @@ class OrderController extends Controller
         }
         
         return redirect()->back();
+    }
+    public function getNotifications()
+    {
+        $notifications = Order::orderBy('created_at', 'desc')->take(5)->get();
+
+        return response()->json($notifications);
     }
 }

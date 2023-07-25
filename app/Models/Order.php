@@ -16,9 +16,12 @@ class Order extends Model
         'total',
         'tableNumber',
         'status',
+        'tunai',
+        'change',
         'paymentMethod',
         'active',
-        'timelines_id'
+        'timelines_id',
+        'cashier'
     ];
 
     public function carts()

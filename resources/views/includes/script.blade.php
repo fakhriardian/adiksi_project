@@ -61,7 +61,7 @@
     // Retrieve the HTML elements
     const items = document.querySelectorAll(".item");
     const cartlist = document.querySelectorAll('.data-cart-list')
-    console.log(cartlist)
+    // console.log(cartlist)
     const totalProduct = document.querySelector(".totalItem")
     // Data that add in cart
     const dataCart = []

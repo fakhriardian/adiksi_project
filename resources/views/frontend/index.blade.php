@@ -1,10 +1,9 @@
 @extends('layouts.frontend')
 
 @section('content')
-    <div class="md:mt-32 mt-20 container mx-auto overflow-hidden">
+    <div class="md:mt-32 mt-20 container mx-auto">
         @foreach ($index as $item)
-            <div
-                class="flex flex-col items-center h-full lg:h-[80vh] overflow-y-hidden md:flex-row md:max-w-full transition-all duration-500 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+            <div class="flex flex-col items-center h-full lg:h-[80vh] overflow-y-hidden md:flex-row md:max-w-full transition-all duration-500 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-1/2 md:rounded-none md:rounded-l-lg"
                     src="{{ asset('store-image/' . $item->hero_image) }}" alt="hero_image">
                 <div class="flex flex-col justify-between lg:p-24 md:p-14 p-5 leading-normal">
@@ -116,7 +115,7 @@
                 </a> 
             </div>
 
-            <div class="flex flex-col md:p-20 p-5 items-center md:mt-14 mt-4 lg:flex-row w-full">
+            <div class="flex flex-col md:p-10 md:mb-10 mb-0 p-5 items-center md:mt-14 mt-4 lg:flex-row w-full">
                 <div class="bg-cover bg-bottom md:w-[70vh] md:h-[60vh] sm:w-[70vh] sm:h-[40vh] w-80 h-80 delay-[300ms] duration-[600ms] taos:[transform:translate3d(-200px,200px,0)] taos:opacity-0" data-taos-offset="200"
                     style="background-image: url({{ asset('store-image/' . $item->mt_image) }})">
                     <div
