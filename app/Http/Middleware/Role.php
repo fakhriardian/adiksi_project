@@ -27,6 +27,6 @@ class Role
             }
         }
             
-        return redirect()->route('items.category');
+        return redirect()->route('dashboard');
     }
 }
