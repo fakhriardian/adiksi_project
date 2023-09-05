@@ -3,7 +3,7 @@
 @section('content')
     <div class="md:mt-32 mt-20 container mx-auto">
         @foreach ($index as $item)
-            <div class="flex flex-col items-center h-full lg:h-[80vh] overflow-y-hidden md:flex-row md:max-w-full transition-all duration-500 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+            <div class="flex flex-col items-center h-full lg:max-h-md overflow-y-hidden md:flex-row md:max-w-full transition-all duration-500 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-1/2 md:rounded-none md:rounded-l-lg"
                     src="{{ asset('store-image/' . $item->hero_image) }}" alt="hero_image">
                 <div class="flex flex-col justify-between lg:p-24 md:p-14 p-5 leading-normal">
@@ -19,19 +19,19 @@
                 </div>
             </div>
 
-            <div class="lg:p-20 p-5 flex lg:mt-32 mt-0 flex-col items-center justify-between h-full lg:h-[60vh] overflow-y-hidden md:flex-row w-full bg-darkblue-800">
-                <div class="flex flex-col md:p-14 p-0 md:mb-0 mb-10 w-full justify-center">
-                    <h5 class="font-alice lg:text-6xl lg:w-[50vh] w-full text-3xl font-bold tracking-tight text-white delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0" data-taos-offset="300">
+            <div class="w-full h-fit p-5 bg-darkblue-800 flex md:flex-row flex-col justify-around items-center gap-5">
+                <div class="md:w-1/2 w-full flex flex-col gap-5 md:p-10 p-0">
+                    <h3 class="text-white text-4xl font-alice delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0" data-taos-offset="300">
                         {{ $item->card_head }}
-                    </h5>
-                    <p id="poppins" class="mt-10 lg:text-lg lg:w-[60vh] w-full text-sm font-normal text-white delay-[300ms] duration-[600ms] taos:translate-x-[-100%] taos:invisible" data-taos-offset="200">
+                    </h3>
+                    <p class="text-white delay-[300ms] duration-[600ms] taos:translate-x-[-100%] taos:invisible" data-taos-offset="200">
                         {{ $item->card_desc }}
                     </p>
                 </div>
-                <figure class="relative max-w-sm delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0" data-taos-offset="300">
-                    <img src="{{ asset('store-image/' . $item->card_image) }}" alt="image description">
-                    <figcaption class="absolute px-4 text-lg text-white bottom-6">
-                        <button data-tooltip-target="tooltip-no-arrow" data-tooltip-placement="bottom" type="button"
+                <div class="relative md:w-1/3 w-full delay-[200ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0" data-taos-offset="300">
+                    <img class="w-72" src="{{ asset('store-image/' . $item->card_image) }}" alt="image description">
+                    <div class="absolute px-4 text-lg text-white bottom-6">
+                        <button data-tooltip-target="tooltip-no-arrow" data-tooltip-placement="top" type="button"
                             class="text-gold-800 bg-white z-10 hover:bg-gray-50 rounded-full md:-translate-y-40 -translate-y-0 md:-translate-x-[50px] -translate-x-0 p-5 animate-bounce">
                             <svg aria-hidden="true" class="w-5 h-5s text-gold-800 dark:text-gray-600" viewBox="0 0 24 27" sfill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
@@ -42,8 +42,8 @@
                             class="absolute p-12 leading-normal invisible inline-block w-80 md:text-lg text-sm font-medium text-black bg-white drop-shadow-lg opacity-90 tooltip">
                             {{ $item->card_quote }}
                         </div>
-                    </figcaption>
-                </figure>
+                    </div>
+                </div>
             </div>
 
             <div class="flex w-full md:flex-row flex-col justify-center">
@@ -54,59 +54,53 @@
                     {{ $item->hl_desc }}
                 </h5>
             </div>
-            <div class="grid grid-cols-4 gap-4 md:p-0 p-5">
+
+            <div class="grid md:grid-cols-4 grid-cols-2 gap-4 md:p-0 p-5">
                 <div>
                     <figure class="relative max-w-sm cursor-pointer delay-[300ms] duration-[600ms] taos:[transform:translate3d(0,200px,0)_scale(0.6)] taos:opacity-0" data-taos-offset="50">
                         <span id="blackOverlay"
-                            class="w-full h-full transition-all duration-300 absolute bg-opacity-0 text-transparent hover:text-white hover:bg-opacity-75 bg-darkblue-800">
+                            class="w-full h-full transition-all opacity-0 duration-300 absolute text-transparent hover:text-white hover:-translate-y-10 hover:opacity-100 bg-gradient-to-b from-darkblue-800 to-transparent">
                             <p class="font-alice md:px-8 px-4 md:py-5 py-2 md:text-3xl sm:text-md text-xs">
                                 {{ $item->hl_capt1 }}
                             </p>
                         </span>
-                        <a href="#">
-                            <img src="{{ asset('store-image/' . $item->hl_image1) }}" alt="image description">
-                        </a>
+                        <img src="{{ asset('store-image/' . $item->hl_image1) }}" alt="image description">
                     </figure>
                 </div>
                 <div>
-                    <figure class="relative max-w-sm cursor-pointer delay-[300ms] duration-[600ms] taos:[transform:translate3d(0,200px,0)_scale(0.6)] taos:opacity-0" data-taos-offset="100">
+                    <figure class="relative max-w-sm cursor-pointer delay-[300ms] duration-[600ms] taos:[transform:translate3d(0,200px,0)_scale(0.6)] taos:opacity-0" data-taos-offset="50">
                         <span id="blackOverlay"
-                            class="w-full h-full transition-all duration-300 absolute bg-opacity-0 text-transparent hover:text-white hover:bg-opacity-75 bg-darkblue-800">
+                            class="w-full h-full transition-all opacity-0 duration-300 absolute text-transparent hover:text-white hover:-translate-y-10 hover:opacity-100 bg-gradient-to-b from-darkblue-800 to-transparent">
                             <p class="font-alice md:px-8 px-4 md:py-5 py-2 md:text-3xl sm:text-md text-xs">
                                 {{ $item->hl_capt2 }}
                             </p>
                         </span>
-                        <a href="#">
-                            <img src="{{ asset('store-image/' . $item->hl_image2) }}" alt="image description">
-                        </a>
+                        <img src="{{ asset('store-image/' . $item->hl_image2) }}" alt="image description">
                     </figure>
                 </div>
                 <div>
-                    <figure class="relative max-w-sm cursor-pointer delay-[300ms] duration-[600ms] taos:[transform:translate3d(0,200px,0)_scale(0.6)] taos:opacity-0" data-taos-offset="125">
+                    <figure class="relative max-w-sm cursor-pointer delay-[300ms] duration-[600ms] taos:[transform:translate3d(0,200px,0)_scale(0.6)] taos:opacity-0" data-taos-offset="50">
                         <span id="blackOverlay"
-                            class="w-full h-full transition-all duration-300 absolute bg-opacity-0 text-transparent hover:text-white hover:bg-opacity-75 bg-darkblue-800">
+                            class="w-full h-full transition-all opacity-0 duration-300 absolute text-transparent hover:text-white hover:-translate-y-10 hover:opacity-100 bg-gradient-to-b from-darkblue-800 to-transparent">
                             <p class="font-alice md:px-8 px-4 md:py-5 py-2 md:text-3xl sm:text-md text-xs">
                                 {{ $item->hl_capt3 }}
                             </p>
                         </span>
-                        <a href="#">
-                            <img src="{{ asset('store-image/' . $item->hl_image3) }}" alt="image description">
-                        </a>
+                        <img src="{{ asset('store-image/' . $item->hl_image3) }}" alt="image description">
                     </figure>
                 </div>
                 <div>
-                    <figure class="relative max-w-sm cursor-pointer delay-[300ms] duration-[600ms] taos:[transform:translate3d(0,200px,0)_scale(0.6)] taos:opacity-0" data-taos-offset="150">
+                    <figure class="relative max-w-sm cursor-pointer delay-[300ms] duration-[600ms] taos:[transform:translate3d(0,200px,0)_scale(0.6)] taos:opacity-0" data-taos-offset="50">
                         <span id="blackOverlay"
-                            class="w-full h-full transition-all duration-300 absolute bg-opacity-0 text-transparent hover:text-white hover:bg-opacity-75 bg-darkblue-800">
+                            class="w-full h-full transition-all opacity-0 duration-300 absolute text-transparent hover:text-white hover:-translate-y-10 hover:opacity-100 bg-gradient-to-b from-darkblue-800 to-transparent">
                             <p class="font-alice md:px-8 px-4 md:py-5 py-2 md:text-3xl sm:text-md text-xs">
                                 {{ $item->hl_capt4 }}
                             </p>
                         </span>
-                        <a href="#">
-                            <img src="{{ asset('store-image/' . $item->hl_image4) }}" alt="image description">
-                        </a>
+                        <img src="{{ asset('store-image/' . $item->hl_image4) }}" alt="image description">
                     </figure>
                 </div>
+
             </div>
             <div class="flex justify-end">
                 <a href="/menu" class="inline-flex items-center mt-4 justify-center px-5 py-4 text-base font-medium text-gray-500 rounded-lg bg-gray-50 transition-all duration-300 group hover:scale-110 hover:text-gray-900 hover:bg-gray-100">
